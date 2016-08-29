@@ -8,11 +8,11 @@
 // option. This file may not be copied, modified, or distributed
 // except according to those terms.
 
-#![feature(plugin)]
-#![plugin(cookie_monster)]
-//~^ ERROR E0463
-//~| NOTE can't find crate
-extern crate cake_is_a_lie;
-
-fn main() {
+fn main () {
+    let x = 4;
+    match x {
+        ref r if *r < 0 => println!("got negative num {} < 0", r),
+        e @ 1 ... 100 => println!("got number within range [1,100] {}", e),
+        _ => println!("no"),
+    }
 }
